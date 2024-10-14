@@ -1,0 +1,78 @@
+{% if community %}
+{% set options = [
+{
+"key": "communities",
+"text": _("In this community"),
+"value": url_for("invenio_app_rdm_communities.communities_detail", pid_value=community.slug),
+},
+{
+"key": "records",
+"text": _("All") + " " + config.THEME_SITENAME,
+"value": url_for("invenio_search_ui.search"),
+}]
+%}
+{% else %}
+{% set options = [
+{
+"key": "records",
+"text": _("All") + " " + config.THEME_SITENAME,
+"value": url_for("invenio_search_ui.search")
+}]
+%}
+{% endif %}
+
+<div class="item p-0 search-bar">
+    <div data-options='{{ options | tojson }}' style="padding: 6px;
+    align-items: center;
+    display: flex;
+    background-color: white;
+    width: 375px;
+    height: 42px;
+    border-radius: 6px;">
+        <i aria-hidden="true" class="search icon" style="color: rgb(60,60,67,0.6);"></i>
+        <input autocomplete="off" aria-label="{{ _('Buscar') }}" placeholder="{{ _('Buscar') }}..." type="text"
+            tabindex="0" class="prompt" value="" style="border: none; outline: none;">
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+<script>
+    $('.ui.dropdown').dropdown();
+
+    $('.ui.dropdown').on('change', function () {
+        const selectedCategory = $('input[name="category"]').val();
+        const selectedAuthor = $('input[name="author"]').val();
+
+        console.log("Category selected:", selectedCategory);
+        console.log("Author selected:", selectedAuthor);
+    });
+</script>
+
+<style>
+    #header-search-bar {
+        padding: 6px;
+        align-items: center;
+        display: flex;
+        background-color: white;
+        width: 375px;
+        height: 42px;
+        border-radius: 6px;
+    }
+
+    .filter-container {
+        border: 2px solid #d3d3d3;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .ui.grid .column {
+        padding-left: 10px;
+    }
+
+    .prompt {
+        width: 250px;
+    }
+</style>
