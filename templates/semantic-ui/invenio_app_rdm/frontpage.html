@@ -6,35 +6,40 @@
 
 {%- block page_body %}
 {%- block first_section %}
-<div class="get-started-section section-content white-bg">
-<h2 class="section-title">
-    Spud-lunk through an archive of potato records.
-</h2>
+<div class="get-started-section section-content white-bg"
+    style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+    <h3 class="section-title" style="width: 70%; margin-bottom: 50px;">
+        <strong>MKC</strong> es una plataforma dedicada a la <strong>recopilación y difusión de investigaciones clave</strong> en el campo de marketing,
+        diseñadas para facilitar el acceso al <strong>conocimiento relevante y actualizado</strong>.
+    
+        Aquí usted puede:
+    </h3>    
 
-<div class="ui container three column stackable grid center aligned vertically padded relaxed">
-    <div class="rdm-goal column">
-        <h3 class="section-title">
-        <a href="{{ url_for('invenio_search_ui.search') }}" >Search and Explore</a>
-        </h3>
-        <div class="command-line">
-        Unearth records.
+
+    <div class="ui container three column stackable grid center aligned vertically padded relaxed">
+        <div class="rdm-goal column">
+            <h3 class="section-title">
+                <a href="{{ url_for('invenio_search_ui.search') }}">Explorar y Consultar</a>
+            </h3>
+            <div class="command-line">
+                Acceda a reportes y estudios de mercado claves.
+            </div>
+        </div>
+        <div class="rdm-goal column">
+            <h3 class="section-title">
+                <a href="{{ url_for('invenio_app_rdm_records.deposit_create') }}">Contribuir</a>
+            </h3>
+            <div class="command-line">Publique sus investigaciones y comparta el conocimiento con la comunidad.</div>
+        </div>
+        <div class="rdm-goal column">
+            <h3 class="section-title">
+                <a href="{{ url_for('invenio_communities.communities_frontpage') }}">Unirse a una comunidad</a>
+            </h3>
+            <div class="command-line">
+                Conecta con otros profesionales y amplia su red de conocimiento.
+            </div>
         </div>
     </div>
-    <div class="rdm-goal column">
-        <h3 class="section-title">
-        <a href="{{ url_for('invenio_app_rdm_records.deposit_create') }}" >Make new records</a>
-        </h3>
-        <div class="command-line">Plant your contribution.</div>
-    </div>
-    <div class="rdm-goal column">
-    <h3 class="section-title">
-        <a href="{{ url_for('invenio_communities.communities_frontpage') }}" >Join a community</a>
-    </h3>
-    <div class="command-line">
-        Grow with others.
-    </div>
-    </div>
-</div>
 </div>
 {%- endblock first_section %}
 {%- endblock page_body %}
